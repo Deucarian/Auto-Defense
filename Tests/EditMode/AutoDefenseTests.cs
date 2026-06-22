@@ -189,6 +189,23 @@ namespace Deucarian.AutoDefense.Tests
         }
 
         [Test]
+        public void EncounterCompletesAfterAllWavesEmitAndEnemiesAreCleared()
+        {
+            using (Harness h = Harness.Create(enemyHealth: 1, directDamage: 5, encounter: true, enemySpeed: 0))
+            {
+                h.Runtime.Start();
+                var buffer = new SpawnRequest[4];
+                EncounterDrainResult drained = h.Encounter.DrainSpawnRequests(buffer);
+                Assert.AreEqual(1, drained.Written);
+                h.Runtime.ConsumeSpawnRequest(buffer[0]);
+                h.Runtime.Tick(1, 0.1f);
+                Assert.AreEqual(0, h.Runtime.ActiveEnemyCount);
+                Assert.AreEqual(EncounterLifecycleState.Completed, h.Encounter.State);
+                Assert.AreEqual(AutoDefenseRuntimeState.Completed, h.Runtime.State);
+            }
+        }
+
+        [Test]
         public void SnapshotCapturesObjectiveAndEnemyState()
         {
             using (Harness h = Harness.Create(enemySpeed: 0))
@@ -335,7 +352,7 @@ namespace Deucarian.AutoDefense.Tests
             private static EncounterRuntime CreateEncounter()
             {
                 var wave = new WaveDefinition(new WaveId("wave"), 0, new[] { SpawnGroupDefinition.Fixed(new SpawnGroupId("group"), new SpawnableId("enemy.basic"), 1, 1, 0, 1, new SpawnChannelId("perimeter-north")) });
-                var definition = new EncounterDefinition(new EncounterId("encounter"), null, new[] { wave }, new[] { ObjectiveDefinition.Manual(new EncounterObjectiveId("manual"), ObjectiveRole.Completion) });
+                var definition = new EncounterDefinition(new EncounterId("encounter"), null, new[] { wave }, new[] { ObjectiveDefinition.AllWavesEmitted(new EncounterObjectiveId("all-waves-emitted")) });
                 return new EncounterRuntime(definition);
             }
         }
