@@ -45,6 +45,15 @@ Shared all-packages validation project:
 - PlayMode pass 1: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.382 seconds. Imported Basic Auto Defense sample smoke ran through durable result output.
 - PlayMode pass 2: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.300 seconds.
 
+Phase 1R Run Upgrades sample integration:
+
+- `Samples~/BasicAutoDefense` now includes a sample-owned Run Upgrades catalog and adapter.
+- The sample adapter translates abstract descriptors into direct-damage support, projectile movement speed, objective healing, and enemy pacing.
+- Auto Defense runtime dependencies remain unchanged; `com.deucarian.run-upgrades` is referenced only by the imported sample asmdef.
+- Shared EditMode with Run Upgrades package tests: 19 passed, 0 failed, duration 0.803 seconds; repeat 19 passed, 0 failed, duration 0.895 seconds.
+- Shared PlayMode upgraded sample pass 1: 1 passed, 0 failed, duration 2.395 seconds.
+- Shared PlayMode upgraded sample pass 2: 1 passed, 0 failed, duration 2.501 seconds.
+
 Benchmarks:
 
 - Pass 1: 1,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 1.828 ms, 0 allocated bytes.

@@ -11,7 +11,8 @@
     "Deucarian.WorldNavigation",
     "Deucarian.Attacks",
     "Deucarian.Projectiles",
-    "Deucarian.WeaponSystems"
+    "Deucarian.WeaponSystems",
+    "Deucarian.RunUpgrades"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
