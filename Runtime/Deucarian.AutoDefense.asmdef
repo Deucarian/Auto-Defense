@@ -1,0 +1,24 @@
+{
+  "name": "Deucarian.AutoDefense",
+  "rootNamespace": "Deucarian.AutoDefense",
+  "references": [
+    "Deucarian.GameplayFoundation",
+    "Deucarian.Encounters",
+    "Deucarian.Combat",
+    "Deucarian.DefenseGames",
+    "Deucarian.WorldSpawning",
+    "Deucarian.WorldNavigation",
+    "Deucarian.Attacks",
+    "Deucarian.Projectiles",
+    "Deucarian.WeaponSystems"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
