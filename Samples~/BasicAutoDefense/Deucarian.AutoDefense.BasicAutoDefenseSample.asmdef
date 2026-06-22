@@ -12,7 +12,9 @@
     "Deucarian.Attacks",
     "Deucarian.Projectiles",
     "Deucarian.WeaponSystems",
-    "Deucarian.RunUpgrades"
+    "Deucarian.RunUpgrades",
+    "Deucarian.IdleProgression",
+    "Deucarian.Progression"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

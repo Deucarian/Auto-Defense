@@ -3,7 +3,9 @@ using Deucarian.Attacks;
 using Deucarian.Combat;
 using Deucarian.DefenseGames;
 using Deucarian.Encounters;
+using Deucarian.IdleProgression;
 using Deucarian.Projectiles;
+using Deucarian.Progression;
 using Deucarian.RunUpgrades;
 using Deucarian.WeaponSystems;
 using Deucarian.WorldNavigation;
@@ -108,6 +110,23 @@ namespace Deucarian.AutoDefense.Samples
             });
         }
 
+        public static IdleProgressionDefinition CreateOfflineProgressionDefinition()
+        {
+            return new IdleProgressionDefinition(
+                System.TimeSpan.FromHours(8),
+                new[] { new IdleProductionRate(new CurrencyId("currency.sample.credits"), 0.25d) },
+                new[] { new IdleCycleReward(new CurrencyId("currency.sample.parts"), new ProgressionAmount(1), System.TimeSpan.FromMinutes(5)) });
+        }
+
+        public static ProgressionCatalog CreateProgressionCatalog()
+        {
+            return new ProgressionCatalog(new[]
+            {
+                new CurrencyDefinition(new CurrencyId("currency.sample.credits"), new ProgressionAmount(100_000)),
+                new CurrencyDefinition(new CurrencyId("currency.sample.parts"), new ProgressionAmount(10_000))
+            });
+        }
+
         private static RunUpgradeDefinition Upgrade(string id, string effect, string target, double amount)
         {
             return new RunUpgradeDefinition(
@@ -137,6 +156,9 @@ namespace Deucarian.AutoDefense.Samples
         private RunUpgradeCatalog _upgradeCatalog;
         private RunUpgradeState _upgradeState;
         private RunUpgradeDraft _currentDraft;
+        private ProgressionCatalog _progressionCatalog;
+        private ProgressionState _progressionState;
+        private IdleProgressionDefinition _offlineDefinition;
         private GameObject _enemyPrefab;
         private GameObject _projectilePrefab;
         private GameObject _root;
@@ -153,6 +175,9 @@ namespace Deucarian.AutoDefense.Samples
         public double DirectDamageBonus { get; private set; }
         public double ProjectileSpeedMultiplier { get; private set; } = 1d;
         public int EnemySpawnDelayTicks { get; private set; }
+        public long OfflineRewardCredits { get; private set; }
+        public long OfflineRewardParts { get; private set; }
+        public IdleProgressionResultCode LastOfflineRewardCode { get; private set; } = IdleProgressionResultCode.NoElapsedTime;
         public bool EncounterCompleted => _runtime != null && _runtime.State == AutoDefenseRuntimeState.Completed;
         public bool EncounterFailed => _runtime != null && _runtime.State == AutoDefenseRuntimeState.Failed;
 
@@ -207,8 +232,26 @@ namespace Deucarian.AutoDefense.Samples
                 new WorldNavigationProjectileNavigator(_projectileNavigation));
             _upgradeCatalog = BasicAutoDefenseSample.CreateRunUpgradeCatalog();
             _upgradeState = new RunUpgradeState();
+            _progressionCatalog = BasicAutoDefenseSample.CreateProgressionCatalog();
+            _progressionState = new ProgressionState();
+            _offlineDefinition = BasicAutoDefenseSample.CreateOfflineProgressionDefinition();
 
             _runtime.Start();
+        }
+
+        public IdleProgressionResult SimulateOfflineReward(System.DateTimeOffset lastSeenUtc, System.DateTimeOffset nowUtc)
+        {
+            if (_runtime == null) Build();
+            IdleProgressionResult result = IdleProgressionCalculator.Calculate(lastSeenUtc, nowUtc, _offlineDefinition);
+            LastOfflineRewardCode = result.Code;
+            if (result.Reward.CurrencyLines.Count > 0)
+            {
+                _progressionState.ApplyReward(_progressionCatalog, new ProgressionOperationId("sample.offline." + nowUtc.UtcTicks), result.Reward);
+            }
+
+            OfflineRewardCredits = _progressionState.GetBalance(new CurrencyId("currency.sample.credits")).Value;
+            OfflineRewardParts = _progressionState.GetBalance(new CurrencyId("currency.sample.parts")).Value;
+            return result;
         }
 
         public void Step(int ticks, float deltaSeconds)

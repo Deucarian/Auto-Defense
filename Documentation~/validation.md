@@ -54,6 +54,14 @@ Phase 1R Run Upgrades sample integration:
 - Shared PlayMode upgraded sample pass 1: 1 passed, 0 failed, duration 2.395 seconds.
 - Shared PlayMode upgraded sample pass 2: 1 passed, 0 failed, duration 2.501 seconds.
 
+Phase 1S Idle Progression sample integration:
+
+- `Samples~/BasicAutoDefense` now includes a sample-owned Idle Progression offline reward adapter.
+- The sample calculates a capped offline reward through `com.deucarian.idle-progression` and applies the resulting Progression `RewardBundle` in sample-owned application glue.
+- Auto Defense runtime dependencies remain unchanged; `com.deucarian.run-upgrades`, `com.deucarian.idle-progression`, and `com.deucarian.progression` are referenced only by the imported sample asmdef.
+- Shared EditMode with Idle Progression package tests: 33 passed, 0 failed, 0 skipped, 0 inconclusive, duration 0.918 seconds; repeat 33 passed, 0 failed, 0 skipped, 0 inconclusive, duration 0.931 seconds.
+- Shared PlayMode sample smoke with offline reward proof: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.291 seconds; repeat 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.351 seconds.
+
 Benchmarks:
 
 - Pass 1: 1,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 1.828 ms, 0 allocated bytes.

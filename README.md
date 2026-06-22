@@ -6,6 +6,6 @@ The package owns central objectives, perimeter spawn-channel conventions, auto-d
 
 It does not own saves, offline rewards, permanent progression, upgrade drafting, UI, analytics, monetization, tower placement, classic tower-defense grids/paths, raw projectile physics, VFX/audio, or ECS.
 
-See `Samples~/BasicAutoDefense` for a small playable starter sample. The sample creates visible primitive GameObjects, a central core, four perimeter spawn channels, a direct mount, a projectile mount, encounter-driven enemy spawns, objective contact damage, terminal completion/failure smoke coverage, and sample-only Run Upgrades drafting.
+See `Samples~/BasicAutoDefense` for a small playable starter sample. The sample creates visible primitive GameObjects, a central core, four perimeter spawn channels, a direct mount, a projectile mount, encounter-driven enemy spawns, objective contact damage, terminal completion/failure smoke coverage, sample-only Run Upgrades drafting, and sample-only Idle Progression offline reward calculation.
 
-The sample is intentionally starter-game glue. Its asmdef references `Deucarian.RunUpgrades`, but the Auto Defense runtime package does not. Reusable systems stay in runtime packages; future full starter-game content belongs in `com.deucarian.template.game.idle-auto-defense`, not in an install-only suite.
+The sample is intentionally starter-game glue. Its asmdef references `Deucarian.RunUpgrades`, `Deucarian.IdleProgression`, and `Deucarian.Progression`, but the Auto Defense runtime package does not. Reusable systems stay in runtime packages; future full starter-game content belongs in `com.deucarian.template.game.idle-auto-defense`, not in an install-only suite.
