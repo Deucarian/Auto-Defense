@@ -62,6 +62,15 @@ Phase 1S Idle Progression sample integration:
 - Shared EditMode with Idle Progression package tests: 33 passed, 0 failed, 0 skipped, 0 inconclusive, duration 0.918 seconds; repeat 33 passed, 0 failed, 0 skipped, 0 inconclusive, duration 0.931 seconds.
 - Shared PlayMode sample smoke with offline reward proof: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.291 seconds; repeat 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.351 seconds.
 
+Phase 1T save/progression sample composition:
+
+- `Samples~/BasicAutoDefense/BasicAutoDefenseSaveProgressionComposition.cs` proves sample-owned composition with Persistence, Progression, Run Upgrades, and Idle Progression.
+- Covered profile DTO save/load, run resume DTO save/load, settings DTO save/load, Progression run reward application, run upgrade snapshot/restore, offline reward from a saved timestamp, missing-save default load, corrupted-primary backup recovery, and a profile migration fixture.
+- Auto Defense runtime dependencies remain unchanged. Persistence, Progression, Run Upgrades, and Idle Progression are referenced only by the imported sample asmdef.
+- Import: `Logs\AllPackages-TestProject-phase1t-import-2.log`, exit code 0.
+- Shared EditMode pass 1: 34 passed, 0 failed, 0 skipped, 0 inconclusive, duration 1.106 seconds; pass 2: 34 passed, 0 failed, 0 skipped, 0 inconclusive, duration 1.035 seconds.
+- Shared PlayMode pass 1: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.355 seconds; pass 2: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 2.323 seconds.
+
 Benchmarks:
 
 - Pass 1: 1,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 1.828 ms, 0 allocated bytes.

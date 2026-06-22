@@ -14,7 +14,8 @@
     "Deucarian.WeaponSystems",
     "Deucarian.RunUpgrades",
     "Deucarian.IdleProgression",
-    "Deucarian.Progression"
+    "Deucarian.Progression",
+    "Deucarian.Persistence"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
