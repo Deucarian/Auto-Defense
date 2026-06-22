@@ -31,16 +31,18 @@ EditMode:
 
 PlayMode:
 
-- Attempted through `AutoDefenseBatchTestRunner.RunPlayMode`.
-- Unity entered a backup-scene PlayMode loop and did not produce the callback summary within the validation window. The process was stopped manually. No compiler errors were present in the PlayMode log.
+- Phase 1P replaced the project-local `AutoDefenseBatchTestRunner` with `com.deucarian.test-automation` consumed through a local file reference in `C:\Repositories\Deucarian\AutoDefense-TestProject`.
+- Pass 1 through `Deucarian.TestAutomation.BatchTestRunner.RunPlayMode`: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 1.923 seconds, `callbackCompleted=True`, exit code 0.
+- Pass 2 through `Deucarian.TestAutomation.BatchTestRunner.RunPlayMode`: 1 passed, 0 failed, 0 skipped, 0 inconclusive, duration 1.976 seconds, `callbackCompleted=True`, exit code 0.
+- Root cause of the earlier caveat: the old project-local callback did not survive the PlayMode assembly reload and backup-scene transition (`Temp/__Backupscenes/0.backup`), so no durable summary was written.
 
 Benchmarks:
 
-- Pass 1: 1,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 2.714 ms, 0 allocated bytes.
-- Pass 1: 5,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 9.008 ms, 0 allocated bytes.
-- Pass 1: 10,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 18.682 ms, 0 allocated bytes.
-- Pass 2: 1,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 1.759 ms, 0 allocated bytes.
-- Pass 2: 5,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 10.668 ms, 0 allocated bytes.
-- Pass 2: 10,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 21.997 ms, 0 allocated bytes.
+- Pass 1: 1,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 1.821 ms, 0 allocated bytes.
+- Pass 1: 5,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 11.117 ms, 0 allocated bytes.
+- Pass 1: 10,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 18.920 ms, 0 allocated bytes.
+- Pass 2: 1,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 2.033 ms, 0 allocated bytes.
+- Pass 2: 5,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 8.372 ms, 0 allocated bytes.
+- Pass 2: 10,000 enemies, 1 tick, 2 mounts, 50% direct/50% projectile, 18.248 ms, 0 allocated bytes.
 
 Benchmark path: `Tests/EditMode/AutoDefenseTests.BenchmarkRecordsAutoFireOrchestration`.
