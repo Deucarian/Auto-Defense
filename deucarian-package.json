@@ -1,0 +1,36 @@
+{
+  "packageId": "com.deucarian.auto-defense",
+  "displayName": "Deucarian Auto Defense",
+  "ownedCapabilities": [],
+  "runtimeAssemblies": [
+    "Deucarian.AutoDefense"
+  ],
+  "editorAssemblies": [],
+  "sampleAssemblies": [
+    "Deucarian.AutoDefense.BasicAutoDefenseSample"
+  ],
+  "testAssemblies": [
+    "Deucarian.AutoDefense.PlayModeTests",
+    "Deucarian.AutoDefense.Tests"
+  ],
+  "requiredDependencies": [
+    "com.deucarian.gameplay-foundation",
+    "com.deucarian.encounters",
+    "com.deucarian.combat",
+    "com.deucarian.defense-games",
+    "com.deucarian.world-spawning",
+    "com.deucarian.world-navigation",
+    "com.deucarian.attacks",
+    "com.deucarian.projectiles",
+    "com.deucarian.weapon-systems"
+  ],
+  "optionalVersionDefinedDependencies": [],
+  "allowedDirectDebugCalls": [],
+  "allowedDirectUnityObjectLifetimeCalls": [
+    {
+      "file": "Samples~/BasicAutoDefense/BasicAutoDefenseSample.cs",
+      "reason": "Imported sample owns transient prefabs and a root object for demonstration setup and destroys them during sample teardown; production framework code does not own transient Unity object cleanup."
+    }
+  ],
+  "expectedSamplesRoot": "Samples~/BasicAutoDefense"
+}
