@@ -7,6 +7,10 @@
   "author": {
     "name": "Deucarian"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Deucarian/Auto-Defense.git"
+  },
   "license": "MIT",
   "dependencies": {
     "com.deucarian.gameplay-foundation": "0.1.0",
