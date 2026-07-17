@@ -1,5 +1,5 @@
 {
-  "name": "Deucarian.AutoDefense.BasicAutoDefenseSample",
+  "name": "Deucarian.AutoDefense.LeanSample",
   "rootNamespace": "Deucarian.AutoDefense.Samples",
   "references": [
     "Deucarian.AutoDefense",
@@ -11,11 +11,7 @@
     "Deucarian.WorldNavigation",
     "Deucarian.Attacks",
     "Deucarian.Projectiles",
-    "Deucarian.WeaponSystems",
-    "Deucarian.RunUpgrades",
-    "Deucarian.IdleProgression",
-    "Deucarian.Progression",
-    "Deucarian.Persistence"
+    "Deucarian.WeaponSystems"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

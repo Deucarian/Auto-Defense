@@ -6,9 +6,9 @@ The package owns central objectives, perimeter spawn-channel conventions, auto-d
 
 It does not own saves, offline rewards, permanent progression, upgrade drafting, UI, analytics, monetization, tower placement, classic tower-defense grids/paths, raw projectile physics, VFX/audio, or ECS.
 
-See `Samples~/BasicAutoDefense` for a small playable starter sample. The sample creates visible primitive GameObjects, a central core, four perimeter spawn channels, a direct mount, a projectile mount, encounter-driven enemy spawns, objective contact damage, terminal completion/failure smoke coverage, sample-only Run Upgrades drafting, sample-only Idle Progression offline reward calculation, and sample-only save/progression composition.
+See `Samples~/LeanAutoDefense` for a focused playable example. It creates visible primitive GameObjects, a central core, four perimeter spawn channels, a direct mount, a projectile mount, encounter-driven enemy spawns, and objective contact damage using only this package's declared dependencies.
 
-The sample is intentionally starter-game glue. Its asmdef references `Deucarian.RunUpgrades`, `Deucarian.IdleProgression`, `Deucarian.Progression`, and `Deucarian.Persistence`, but the Auto Defense runtime package does not. Reusable systems stay in runtime packages; future full starter-game content belongs in `com.deucarian.template.game.idle-auto-defense`, not in an install-only suite.
+The full-stack persistence, progression, run-upgrade, and idle-reward example is owned by `com.deucarian.auto-defense-suite`. Playable product content and balance remain in `com.deucarian.template.game.idle-auto-defense`.
 
 ## Install
 
@@ -36,7 +36,7 @@ Do not use this package to take ownership of capabilities outside its `AGENTS.md
 
 1. Install the package through Deucarian Package Installer or Unity Package Manager using the URL above.
 2. Let Unity finish resolving packages and compiling assemblies.
-3. Import the `Basic Auto Defense` sample if you want a working reference scene or setup.
+3. Import the `Lean Auto Defense` sample if you want a working reference scene.
 4. Start from the package README sections above and the public runtime/editor APIs in this repository.
 
 ## Integrations
