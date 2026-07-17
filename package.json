@@ -1,6 +1,6 @@
 {
   "name": "com.deucarian.auto-defense",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "Deucarian Auto Defense",
   "description": "Idle Auto Defense and Auto Tower Defense orchestration for central objectives, perimeter spawning, mounted weapons, targeting, and lower-package composition.",
   "unity": "6000.3",
@@ -13,21 +13,21 @@
   },
   "license": "MIT",
   "dependencies": {
-    "com.deucarian.gameplay-foundation": "0.1.0",
-    "com.deucarian.encounters": "0.1.0",
-    "com.deucarian.combat": "0.1.0",
-    "com.deucarian.defense-games": "0.1.0",
-    "com.deucarian.world-spawning": "0.2.0",
-    "com.deucarian.world-navigation": "0.1.0",
-    "com.deucarian.attacks": "0.1.0",
-    "com.deucarian.projectiles": "0.2.0",
-    "com.deucarian.weapon-systems": "0.1.0"
+    "com.deucarian.gameplay-foundation": "0.1.1",
+    "com.deucarian.encounters": "0.1.1",
+    "com.deucarian.combat": "0.1.1",
+    "com.deucarian.defense-games": "0.1.1",
+    "com.deucarian.world-spawning": "0.2.1",
+    "com.deucarian.world-navigation": "0.1.1",
+    "com.deucarian.attacks": "0.1.1",
+    "com.deucarian.projectiles": "0.2.1",
+    "com.deucarian.weapon-systems": "0.1.1"
   },
   "samples": [
     {
-      "displayName": "Basic Auto Defense",
-      "description": "Minimal central-objective defense composition with perimeter channels and mounted direct/projectile weapons.",
-      "path": "Samples~/BasicAutoDefense"
+      "displayName": "Lean Auto Defense",
+      "description": "Focused central-objective defense demonstration using only the Auto Defense package's declared dependencies.",
+      "path": "Samples~/LeanAutoDefense"
     }
   ]
 }

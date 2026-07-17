@@ -42,7 +42,7 @@ Optional/version-defined dependencies:
 
 Architecture exceptions:
 
-- The `Samples~/BasicAutoDefense/BasicAutoDefenseSample.cs` sample destroys sample-created prefabs and root objects directly during `OnDestroy`; keep this scoped to the imported sample unless Common becomes a production dependency for framework cleanup.
+- The `Samples~/LeanAutoDefense/LeanAutoDefenseSample.cs` sample destroys sample-created prefabs and root objects directly during `OnDestroy`; keep this scoped to the imported sample unless Common becomes a production dependency for framework cleanup.
 
 ## Policies
 
