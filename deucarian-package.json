@@ -1,13 +1,14 @@
 {
   "packageId": "com.deucarian.auto-defense",
   "displayName": "Deucarian Auto Defense",
+  "samplePolicy": "playable-scene",
   "ownedCapabilities": [],
   "runtimeAssemblies": [
     "Deucarian.AutoDefense"
   ],
   "editorAssemblies": [],
   "sampleAssemblies": [
-    "Deucarian.AutoDefense.BasicAutoDefenseSample"
+    "Deucarian.AutoDefense.LeanSample"
   ],
   "testAssemblies": [
     "Deucarian.AutoDefense.PlayModeTests",
@@ -28,9 +29,9 @@
   "allowedDirectDebugCalls": [],
   "allowedDirectUnityObjectLifetimeCalls": [
     {
-      "file": "Samples~/BasicAutoDefense/BasicAutoDefenseSample.cs",
+      "file": "Samples~/LeanAutoDefense/LeanAutoDefenseSample.cs",
       "reason": "Imported sample owns transient prefabs and a root object for demonstration setup and destroys them during sample teardown; production framework code does not own transient Unity object cleanup."
     }
   ],
-  "expectedSamplesRoot": "Samples~/BasicAutoDefense"
+  "expectedSamplesRoot": "Samples~/LeanAutoDefense"
 }

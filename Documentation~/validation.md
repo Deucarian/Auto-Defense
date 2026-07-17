@@ -1,5 +1,10 @@
 # Package Validation Notes
 
+The phase 1R-1T entries below are historical evidence for the original full-stack
+sample. That sample now lives at
+`com.deucarian.auto-defense-suite/Samples~/BasicAutoDefense`. Current Auto Defense
+validation imports the dependency-clean `Samples~/LeanAutoDefense` example.
+
 Unity version: `6000.3.5f1`.
 
 Validation project: `C:\Repositories\Deucarian\AutoDefense-TestProject`.
